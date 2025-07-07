@@ -1,61 +1,195 @@
-body {
+/* style.css - עיצוב מודרני ונעים לעין */
+
+/* יבוא גופן Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&display=swap");
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  padding: 0;
+}
+
+body {
+  font-family: "Heebo", sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
 header {
+  width: 100%;
+  max-width: 600px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
 }
 
-.logo {
-  height: 50px;
+header .logo {
+  max-height: 50px;
+  max-width: 48%;
+  object-fit: contain;
+}
+
+form#eventForm {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  border-radius: 12px;
+  padding: 30px 40px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
 }
 
 .form-slide {
   display: none;
-  padding: 40px 20px;
-  max-width: 600px;
-  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fadeInSlide 0.4s ease forwards;
 }
 
 .form-slide.active {
-  display: block;
+  display: flex;
 }
 
 .form-slide h2 {
-  text-align: center;
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  color: #222;
 }
 
-.form-slide label,
-.form-slide input,
-.form-slide select,
-.form-slide textarea {
-  display: block;
+input[type="date"],
+input[type="time"],
+input[type="number"],
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+select,
+textarea {
   width: 100%;
-  margin-top: 10px;
-  font-size: 1.1em;
+  max-width: 320px;
+  padding: 12px 16px;
+  font-size: 1.1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  font-family: "Heebo", sans-serif;
 }
 
-.form-slide button {
-  margin-top: 30px;
-  padding: 10px 20px;
-  font-size: 1.2em;
-  background-color: #007bff;
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.4);
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+  font-family: "Heebo", sans-serif;
+}
+
+button {
+  margin-top: 25px;
+  background-color: #4a90e2;
   color: white;
+  font-weight: 600;
+  font-size: 1.15rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+  width: 140px;
 }
 
-.skip-btn {
+button:hover {
+  background-color: #357abd;
+  box-shadow: 0 6px 12px rgba(53, 122, 189, 0.5);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 6px rgba(53, 122, 189, 0.4);
+}
+
+button.skip-btn {
   background-color: transparent;
-  color: #007bff;
-  border: none;
+  color: #777;
+  box-shadow: none;
+  padding: 10px 16px;
+  font-weight: 500;
+  width: auto;
+  margin-left: 15px;
+}
+
+button.skip-btn:hover {
+  color: #4a90e2;
   text-decoration: underline;
-  margin-top: 10px;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.form-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.form-navigation button {
+  width: 120px;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* רספונסיביות */
+@media (max-width: 640px) {
+  header {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  form#eventForm {
+    padding: 25px 20px;
+  }
+
+  input[type="date"],
+  input[type="time"],
+  input[type="number"],
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  select,
+  textarea {
+    max-width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .form-navigation {
+    flex-direction: column;
+    gap: 12px;
+  }
 }
