@@ -9,6 +9,12 @@ function nextSlide() {
     }
 }
 
+function prevSlide() {
+    if (currentStep > 0) {
+        showSlide(currentStep - 1);
+    }
+}
+
 function togglePlaceExtra(value) {
     const extra = document.getElementById('customLocation');
     extra.style.display = (value === 'אחר') ? 'block' : 'none';
