@@ -10,10 +10,13 @@ function nextSlide() {
 }
 
 function prevSlide() {
-    if (currentStep > 0) {
-        showSlide(currentStep - 1);
+    if (currentSlide > 0) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide--;
+        slides[currentSlide].classList.add('active');
     }
 }
+
 
 function togglePlaceExtra(value) {
     const extra = document.getElementById('customLocation');
