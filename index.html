@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="he">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>יצירת מועד הדרכה חדש/title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <img
+        src="berkobot-logo.png"
+        class="logo"
+        alt="Berkobot Logo"
+      />
+      <img
+        src="malar-logo.png"
+        class="logo"
+        alt="Malar Logo"
+      />
+    </header>
+
+    <form id="eventForm">
+      <div class="form-slide active" data-step="0">
+        <h2>תאריך ההדרכה</h2>
+        <input type="date" name="date" required />
+        <button type="button" onclick="nextSlide()">
+          המשך
+        </button>
+      </div>
+
+      <div class="form-slide" data-step="1">
+        <h2>שעת התחלה</h2>
+        <input type="time" name="time" required />
+        <button type="button" onclick="nextSlide()">
+          המשך
+        </button>
+      </div>
+
+      <div class="form-slide" data-step="2">
+        <h2>משך ההדרכה (בשעות)</h2>
+        <input type="number" name="length" required />
+        <button type="button" onclick="nextSlide()">
+          המשך
+        </button>
+      </div>
+
+      <div class="form-slide" data-step="3">
+        <h2>מקום</h2>
+        <select
+          name="place"
+          required
+          onchange="togglePlaceExtra(this.value)"
+        >
+          <option value="">בחר</option>
+          <option value="נתניה ספריית מדיה טק">נתניה ספריית מדיה טק</option>
+          <option value="חיפה קמפוס חוצות">
+            חיפה קמפוס חוצות
+          </option>
+          <option value="פתח תקווה אימבר">פתח תקווה אימבר</option>
+          <option value="ראשון לציון האקדמיה לעיצוב">ראשון לציון האקדמיה לעיצוב</option>
+          <option value="באר שבע מתנס יא">באר שבע מתנס י"א</option>
+          <option value="תל אביב יגאל אלון">תל אביב יגאל אלון</option>
+          <option value="ירושלים מכללת לימודית">
+            ירושלים מכללת לימודית
+          </option>
+          <option value="אחר">אחר</option>
+        </select>
+        <button type="button" onclick="nextSlide()">
+          המשך
+        </button>
+      </div>
+
+      <div
+        class="form-slide"
+        data-step="4"
+        id="customLocation"
+        style="display: none"
+      >
+      <div class="form-slide" data-step="4" id="customLocation" style="display:none">
+        <h2>עיר*</h2>
+        <input type="text" name="city" required>
+        <button type="button" onclick="nextSlide()">המשך</button>
+      </div>
+
+      <div class="form-slide" data-step="5" id="customAddress" style="display:none">
+        <h2>כתובת*</h2>
+        <input type="text" name="address" required>
+        <button type="button" onclick="nextSlide()">המשך</button>
+      </div>
+
+      <div class="form-slide" data-step="6" id="customMoreInfo" style="display:none">
+        <h2>פרטים נוספים</h2>
+        <textarea name="more_info"></textarea>
+        <button type="button" onclick="nextSlide()">המשך</button>
+        <button type="button" class="skip-btn" onclick="nextSlide()">דלג</button>
+      </div>
+
+      <div class="form-slide" data-step="5">
+        <h2>שם המדריך</h2>
+        <select
+          name="tutor"
+          required
+          onchange="toggleTutorExtra(this.value)"
+        >
+          <option value="">בחר</option>
+          <option value="צחי פרידמן">צחי פרידמן</option>
+          <option value="יהב">יהב</option>
+          <option value="אבישי לוי">אבישי לוי</option>
+          <option value="שוקי שטכלברג">שוקי שטכלברג</option>
+          <option value="אחר">אחר</option>
+        </select>
+        <button type="button" onclick="nextSlide()">
+          המשך
+        </button>
+      </div>
+
+      <div
+        class="form-slide"
+        data-step="6"
+        id="customTutor"
+        style="display: none"
+      >
+        <h2>טלפון של המדריך</h2>
+        <input type="tel" name="tutor_phone" />
+        <h2>מייל של המדריך</h2>
+        <input type="email" name="tutor_mail" />
+        <button type="button" class="skip-btn" onclick="nextSlide()">דלג</button>
+        <button type="button" onclick="nextSlide()">המשך</button>
+      </div>
+
+      <div class="form-slide" data-step="7">
+        <h2>שלח טופס</h2>
+        <button type="submit">שלח טופס</button>
+      </div>
+
+      <div class="form-slide" data-step="7">
+        <h2>תודה! הפרטים נשלחו.</h2>
+      </div>
+    </form>
+
+    <script src="script.js"></script>
+  </body>
+</html>
