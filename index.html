@@ -56,7 +56,7 @@
         <select
           name="place"
           required
-          onchange="handlePlaceChange(this.value)"
+          id="placeSelect"
         >
           <option value="">בחר</option>
           <option value="נתניה ספריית מדיה טק">נתניה ספריית מדיה טק</option>
@@ -73,7 +73,7 @@
           <option value="אחר">אחר</option>
         </select>
         <button type="button" onclick="prevSlide()">חזור</button>
-        <button type="button" onclick="nextSlide()">
+        <button type="button" onclick="handlePlaceStep()">
           המשך
         </button>
       </div>
@@ -111,7 +111,7 @@
         <select
           name="tutor"
           required
-          onchange="handleTutorChange(this.value)"
+          id="tutorSelect"
         >
           <option value="">בחר</option>
           <option value="צחי פרידמן">צחי פרידמן</option>
@@ -121,7 +121,7 @@
           <option value="אחר">אחר</option>
         </select>
         <button type="button" onclick="prevSlide()">חזור</button>
-        <button type="button" onclick="nextSlide()">
+        <button type="button" onclick="handleTutorStep()">
           המשך
         </button>
       </div>

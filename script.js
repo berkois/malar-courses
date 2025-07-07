@@ -23,18 +23,23 @@ function prevSlide() {
     }
 }
 
-function handlePlaceChange(value) {
-    if (value === "אחר") {
+function handlePlaceStep() {
+    const placeValue = document.getElementById("placeSelect").value;
+
+    if (placeValue === "אחר") {
         document.getElementById("customLocation").style.display = "block";
         document.getElementById("customAddress").style.display = "block";
         document.getElementById("customMoreInfo").style.display = "block";
-    } else {
+        nextSlide(); // עובר לעיר
+    } else if (placeValue !== "") {
         document.getElementById("customLocation").style.display = "none";
         document.getElementById("customAddress").style.display = "none";
         document.getElementById("customMoreInfo").style.display = "none";
-        skipCustomLocationSteps();
+        currentSlide += 4; // דילוג על עיר, כתובת, פרטים נוספים, והמשך רגיל
+        showSlide(currentSlide);
     }
 }
+
 
 function skipCustomLocationSteps() {
     slides[currentSlide].classList.remove('active');
@@ -42,14 +47,19 @@ function skipCustomLocationSteps() {
     slides[currentSlide].classList.add('active');
 }
 
-function handleTutorChange(value) {
-    if (value === "אחר") {
+function handleTutorStep() {
+    const tutorValue = document.getElementById("tutorSelect").value;
+
+    if (tutorValue === "אחר") {
         document.getElementById("customTutor").style.display = "block";
-    } else {
+        nextSlide(); // לשלב טלפון ומייל
+    } else if (tutorValue !== "") {
         document.getElementById("customTutor").style.display = "none";
-        skipCustomTutorStep();
+        currentSlide += 2; // מדלג על שלב טלפון ומייל
+        showSlide(currentSlide);
     }
 }
+
 
 function skipCustomTutorStep() {
     slides[currentSlide].classList.remove('active');
